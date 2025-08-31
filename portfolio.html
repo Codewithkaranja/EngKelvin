@@ -64,7 +64,7 @@
 
       /* Header & Navigation */
       header {
-        background-color: var(--white);
+        background-color: rgba(255, 255, 255, 0.822);
         box-shadow: var(--shadow);
         position: fixed;
         width: 100%;
@@ -85,13 +85,13 @@
       }
 
       .logo h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
         margin: 0;
-        color: var(--primary-blue);
+        color: gold;
       }
 
       .logo span {
-        color: var(--secondary-blue);
+        color: blue;
       }
 
       nav ul {
@@ -161,11 +161,25 @@
         color: var(--white);
       }
 
-      .portfolio-hero p {
+      .services-hero h2 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--white);
+        animation: fadeInDown 1s ease-out;
+      }
+
+      .services-hero p {
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+        animation: fadeInUp 1s ease-out 3s both;
+      }
+
+      /*.portfolio-hero p {
         font-size: 1.2rem;
         max-width: 700px;
         margin: 0 auto 2rem;
-      }
+      }*/
 
       /* Portfolio Section */
       .portfolio {
@@ -579,7 +593,7 @@
     <header>
       <div class="container header-container">
         <div class="logo">
-          <h1>Kelvin <span>Engineers & Interiors</span></h1>
+          <h1>Kelvin <span>Construction & Interiors</span></h1>
         </div>
         <button class="mobile-menu-btn">
           <i class="fas fa-bars"></i>
@@ -842,12 +856,12 @@
         <div class="footer-col">
           <h3>Business Hours</h3>
           <p>Monday-Friday: 9am - 6pm</p>
-          <p>Saturday: 10am - 4pm</p>
+          <p>Saturday: 9am - 4pm</p>
           <p>Sunday: Closed</p>
         </div>
       </div>
       <div class="container copyright">
-        <p>&copy; 2025 Kelvin Engineers & Interiors. All Rights Reserved.</p>
+        <p>&copy; 2025 Kelvin Construction & Interiors. All Rights Reserved.</p>
       </div>
     </footer>
 
