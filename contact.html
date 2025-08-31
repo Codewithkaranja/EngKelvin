@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Kelvin Engineers & Interiors</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-blue: #1a4b8c;
+        --secondary-blue: #2d6ec4;
+        --light-blue: #e8f1ff;
+        --dark-grey: #333;
+        --medium-grey: #666;
+        --light-grey: #f5f7fa;
+        --white: #ffffff;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        color: var(--dark-grey);
+        line-height: 1.6;
+
+        padding-top: 70px; /* Account for fixed header */
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80")
+            no-repeat center center/cover;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--primary-blue);
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      /* Header & Navigation */
+      header {
+        background-color: var(--white);
+        box-shadow: var(--shadow);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo h1 {
+        font-size: 1.8rem;
+        margin: 0;
+        color: var(--primary-blue);
+      }
+
+      .logo span {
+        color: var(--secondary-blue);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 1.5rem;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--dark-grey);
+        font-weight: 600;
+        font-size: 1rem;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: var(--secondary-blue);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--primary-blue);
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 5rem 0;
+        background: linear-gradient(
+          to bottom,
+          var(--light-grey) 50%,
+          var(--white) 50%
+        );
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 0.5rem;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--secondary-blue);
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        background: var(--white);
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .contact-form {
+        padding: 3rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: "Open Sans", sans-serif;
+        transition: border-color 0.3s;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus,
+      .form-group select:focus {
+        border-color: var(--secondary-blue);
+        outline: none;
+      }
+
+      .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--secondary-blue);
+        color: var(--white);
+        padding: 0.8rem 1.8rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+      }
+
+      .btn:hover {
+        background-color: var(--primary-blue);
+        transform: translateY(-3px);
+      }
+
+      .contact-info {
+        background-color: var(--primary-blue);
+        padding: 3rem;
+        color: var(--white);
+      }
+
+      .contact-info h3 {
+        color: var(--white);
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+      }
+
+      .contact-method {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background-color: var(--secondary-blue);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 1rem;
+        color: var(--white);
+        font-size: 1.2rem;
+      }
+
+      .contact-details h4 {
+        margin-bottom: 0.2rem;
+        font-size: 1.1rem;
+        color: var(--white);
+      }
+
+      .contact-details p,
+      .contact-details a {
+        color: var(--light-blue);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .contact-details a:hover {
+        color: var(--white);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 3rem;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: var(--secondary-blue);
+        color: var(--white);
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: var(--white);
+        color: var(--primary-blue);
+        transform: translateY(-3px);
+      }
+
+      /* Map Section */
+      .map-section {
+        padding: 3rem 0;
+        background-color: var(--light-grey);
+      }
+
+      .map-container {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        height: 400px;
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark-grey);
+        color: var(--white);
+        padding: 3rem 0 1rem;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-col h3 {
+        color: var(--white);
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+      }
+
+      .footer-col p {
+        margin-bottom: 1rem;
+      }
+
+      .footer-col ul {
+        list-style: none;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-col ul li a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-col ul li a:hover {
+        color: var(--white);
+      }
+
+      .copyright {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #555;
+        color: #ccc;
+      }
+
+      /* WhatsApp Float */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        color: var(--white);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.8rem;
+        box-shadow: var(--shadow);
+        z-index: 100;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .whatsapp-float:hover {
+        background-color: #128c7e;
+        transform: scale(1.1);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-info {
+          order: -1;
+          text-align: center;
+        }
+
+        .contact-method {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        nav {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 80%;
+          height: calc(100vh - 70px);
+          background-color: var(--white);
+          box-shadow: var(--shadow);
+          transition: all 0.3s;
+          z-index: 999;
+        }
+
+        nav.active {
+          left: 0;
+        }
+
+        nav ul {
+          flex-direction: column;
+          padding: 2rem;
+        }
+
+        nav ul li {
+          margin: 1rem 0;
+        }
+
+        .contact-form,
+        .contact-info {
+          padding: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo h1 {
+          font-size: 1.5rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .btn {
+          padding: 0.6rem 1.5rem;
+        }
+
+        .contact-icon {
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header & Navigation -->
+    <header>
+      <div class="container header-container">
+        <div class="logo">
+          <h1>Kelvin <span>Engineers & Interiors</span></h1>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <!--<li><a href="#testimonials">Testimonials</a></li>-->
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Us</h2>
+          <p>
+            Get in touch with us for reliable engineering and interior solutions
+          </p>
+        </div>
+        <div class="contact-container">
+          <div class="contact-form">
+            <h3>Request a Quote</h3>
+            <form id="quoteForm">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+              <div class="form-group">
+                <label for="service">Service Required</label>
+                <select id="service" name="service" required>
+                  <option value="">Select a service</option>
+                  <option value="plumbing">Plumbing</option>
+                  <option value="electrical">Electrical Installations</option>
+                  <option value="skimming">Skimming</option>
+                  <option value="interior-design">Interior Designing</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Project Details</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <button type="submit" class="btn">Submit Request</button>
+            </form>
+          </div>
+          <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Phone</h4>
+                <p>+254 112 752088</p>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Email</h4>
+                <p>info@kelvinengineers.com</p>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <div class="contact-details">
+                <h4>WhatsApp</h4>
+                <p>+254 112 752088</p>
+              </div>
+            </div>
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Location</h4>
+                <p>123 Design Street, Creative City, CC 12345</p>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <div class="container">
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.808722676991!2d36.8212142740995!3d-1.2922356356322148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d6efc6ed3b%3A0x4a3d2c2e94b1c7c4!2sNairobi%20City%20Centre%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1690824000000!5m2!1sen!2ske"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-container">
+        <div class="footer-col">
+          <h3>Kelvin Engineers & Interiors</h3>
+          <p>
+            Providing reliable engineering and interior solutions with
+            professionalism and creativity.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Plumbing</a></li>
+            <li><a href="#">Electrical Installations</a></li>
+            <li><a href="#">Skimming</a></li>
+            <li><a href="#">Interior Designing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Business Hours</h3>
+          <p>Monday-Friday: 9am - 6pm</p>
+          <p>Saturday: 10am - 4pm</p>
+          <p>Sunday: Closed</p>
+        </div>
+      </div>
+      <div class="container copyright">
+        <p>&copy; 2025 Kelvin Engineers & Interiors. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/254112752088" class="whatsapp-float" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const nav = document.querySelector("nav");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        mobileMenuBtn.innerHTML = nav.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("active");
+          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Form submission
+      document
+        .getElementById("quoteForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Thank you for your request! We will contact you shortly.");
+          this.reset();
+        });
+    </script>
+  </body>
+</html>

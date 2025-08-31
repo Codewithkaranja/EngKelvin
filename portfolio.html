@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Kelvin Engineers & Interiors</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-blue: #1a4b8c;
+        --secondary-blue: #2d6ec4;
+        --light-blue: #e8f1ff;
+        --dark-grey: #333;
+        --medium-grey: #666;
+        --light-grey: #f5f7fa;
+        --white: #ffffff;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --civil-blue: #0d2d5e;
+        --steel-grey: #5c7a9d;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        color: var(--dark-grey);
+        line-height: 1.6;
+        background-color: var(--white);
+        padding-top: 70px; /* Account for fixed header */
+        background-image: linear-gradient(
+            rgba(245, 247, 250, 0.9),
+            rgba(245, 247, 250, 0.9)
+          ),
+          url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='%23f5f7fa'/%3E%3Cpath d='M0 0l100 100M100 0L0 100' stroke='%23e1e6ef' stroke-width='1'/%3E%3C/svg%3E");
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--primary-blue);
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      /* Header & Navigation */
+      header {
+        background-color: var(--white);
+        box-shadow: var(--shadow);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo h1 {
+        font-size: 1.8rem;
+        margin: 0;
+        color: var(--primary-blue);
+      }
+
+      .logo span {
+        color: var(--secondary-blue);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 1.5rem;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--dark-grey);
+        font-weight: 600;
+        font-size: 1rem;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: var(--secondary-blue);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--primary-blue);
+      }
+
+      /* Portfolio Hero Section */
+      .portfolio-hero {
+        background: linear-gradient(
+            rgba(13, 45, 94, 0.8),
+            rgba(13, 45, 94, 0.9)
+          ),
+          url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80")
+            no-repeat center center/cover;
+        padding: 6rem 0;
+        text-align: center;
+        color: var(--white);
+        position: relative;
+      }
+
+      .portfolio-hero::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background: linear-gradient(
+          135deg,
+          transparent 0%,
+          transparent 50%,
+          var(--white) 50%,
+          var(--white) 100%
+        );
+        background-size: 20px 20px;
+      }
+
+      .portfolio-hero h2 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--white);
+      }
+
+      .portfolio-hero p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+      }
+
+      /* Portfolio Section */
+      .portfolio {
+        padding: 5rem 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 0.5rem;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: var(--secondary-blue);
+      }
+
+      .portfolio-filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 3rem;
+      }
+
+      .filter-btn {
+        padding: 0.5rem 1.5rem;
+        background-color: var(--light-grey);
+        border: none;
+        border-radius: 50px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .filter-btn.active,
+      .filter-btn:hover {
+        background-color: var(--secondary-blue);
+        color: var(--white);
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .portfolio-item {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        height: 300px;
+        background-color: var(--civil-blue);
+      }
+
+      .portfolio-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .portfolio-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .portfolio-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(13, 45, 94, 0.9), transparent);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 2rem;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+
+      .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+      }
+
+      .portfolio-overlay h3 {
+        color: var(--white);
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .portfolio-overlay p {
+        color: var(--light-blue);
+        margin-bottom: 1rem;
+      }
+
+      .portfolio-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .portfolio-tag {
+        background-color: var(--secondary-blue);
+        color: var(--white);
+        padding: 0.3rem 0.8rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+      }
+
+      /* Project Showcase */
+      .project-showcase {
+        padding: 5rem 0;
+        background-color: var(--light-grey);
+        position: relative;
+      }
+
+      .project-showcase::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background: linear-gradient(
+          135deg,
+          transparent 0%,
+          transparent 50%,
+          var(--white) 50%,
+          var(--white) 100%
+        );
+        background-size: 20px 20px;
+      }
+
+      .showcase-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .showcase-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .showcase-features {
+        margin: 2rem 0;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .feature-icon {
+        width: 40px;
+        height: 40px;
+        background-color: var(--light-blue);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 1rem;
+        color: var(--secondary-blue);
+      }
+
+      .showcase-image {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .showcase-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Stats Section */
+      .stats {
+        padding: 4rem 0;
+        background: linear-gradient(
+            rgba(13, 45, 94, 0.9),
+            rgba(13, 45, 94, 0.9)
+          ),
+          url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80")
+            no-repeat center center/cover;
+        color: var(--white);
+        text-align: center;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .stat-item h3 {
+        font-size: 3rem;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-item p {
+        font-size: 1.1rem;
+        color: var(--light-blue);
+      }
+
+      /* CTA Section */
+      .cta {
+        padding: 5rem 0;
+        text-align: center;
+        background-color: var(--white);
+      }
+
+      .cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta p {
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--secondary-blue);
+        color: var(--white);
+        padding: 0.8rem 1.8rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: var(--primary-blue);
+        transform: translateY(-3px);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark-grey);
+        color: var(--white);
+        padding: 3rem 0 1rem;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-col h3 {
+        color: var(--white);
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+      }
+
+      .footer-col p {
+        margin-bottom: 1rem;
+      }
+
+      .footer-col ul {
+        list-style: none;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-col ul li a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-col ul li a:hover {
+        color: var(--white);
+      }
+
+      .copyright {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #555;
+        color: #ccc;
+      }
+
+      /* WhatsApp Float */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        color: var(--white);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.8rem;
+        box-shadow: var(--shadow);
+        z-index: 100;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .whatsapp-float:hover {
+        background-color: #128c7e;
+        transform: scale(1.1);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .showcase-container {
+          grid-template-columns: 1fr;
+        }
+
+        .portfolio-grid {
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        nav {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 80%;
+          height: calc(100vh - 70px);
+          background-color: var(--white);
+          box-shadow: var(--shadow);
+          transition: all 0.3s;
+          z-index: 999;
+        }
+
+        nav.active {
+          left: 0;
+        }
+
+        nav ul {
+          flex-direction: column;
+          padding: 2rem;
+        }
+
+        nav ul li {
+          margin: 1rem 0;
+        }
+
+        .portfolio-hero h2 {
+          font-size: 2.5rem;
+        }
+
+        .portfolio-hero p {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo h1 {
+          font-size: 1.5rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .btn {
+          padding: 0.6rem 1.5rem;
+        }
+
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .portfolio-hero h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header & Navigation -->
+    <header>
+      <div class="container header-container">
+        <div class="logo">
+          <h1>Kelvin <span>Engineers & Interiors</span></h1>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Portfolio Hero Section -->
+    <section class="portfolio-hero">
+      <div class="container">
+        <h2>Our Engineering Portfolio</h2>
+        <p>
+          Showcasing our expertise in plumbing, electrical installations,
+          skimming, and interior design through completed projects
+        </p>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+      <div class="container">
+        <div class="section-title">
+          <h2>Featured Projects</h2>
+          <p>
+            Browse through our completed works and see the quality we deliver
+          </p>
+        </div>
+
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-filter="all">
+            All Projects
+          </button>
+          <button class="filter-btn" data-filter="plumbing">Plumbing</button>
+          <button class="filter-btn" data-filter="electrical">
+            Electrical
+          </button>
+          <button class="filter-btn" data-filter="skimming">Skimming</button>
+          <button class="filter-btn" data-filter="interior">
+            Interior Design
+          </button>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-category="plumbing">
+            <img
+              src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Modern Bathroom Plumbing"
+            />
+            <div class="portfolio-overlay">
+              <h3>Modern Bathroom Installation</h3>
+              <p>Complete plumbing renovation for a luxury bathroom</p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Plumbing</span>
+                <span class="portfolio-tag">Renovation</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="electrical">
+            <img
+              src="https://images.unsplash.com/photo-1585730061510-47cb5e6f2f3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Electrical Wiring"
+            />
+            <div class="portfolio-overlay">
+              <h3>Office Electrical System</h3>
+              <p>
+                Complete electrical installation for commercial office space
+              </p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Electrical</span>
+                <span class="portfolio-tag">Commercial</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="skimming">
+            <img
+              src="https://images.unsplash.com/photo-1620625515032-6e0b2a5a36c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Wall Skimming"
+            />
+            <div class="portfolio-overlay">
+              <h3>Wall Preparation & Skimming</h3>
+              <p>Professional skimming services for a smooth finish</p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Skimming</span>
+                <span class="portfolio-tag">Walls</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="interior">
+            <img
+              src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Interior Design"
+            />
+            <div class="portfolio-overlay">
+              <h3>Living Room Makeover</h3>
+              <p>Complete interior design transformation</p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Interior Design</span>
+                <span class="portfolio-tag">Residential</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="plumbing">
+            <img
+              src="https://images.unsplash.com/photo-1631005259548-cfea5a79dae2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Kitchen Plumbing"
+            />
+            <div class="portfolio-overlay">
+              <h3>Kitchen Plumbing Upgrade</h3>
+              <p>Modern plumbing installation for a contemporary kitchen</p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Plumbing</span>
+                <span class="portfolio-tag">Kitchen</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="electrical">
+            <img
+              src="https://images.unsplash.com/photo-1485579149621-3123dd979885?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Lighting Installation"
+            />
+            <div class="portfolio-overlay">
+              <h3>Modern Lighting Solutions</h3>
+              <p>
+                Energy-efficient lighting installation for residential property
+              </p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Electrical</span>
+                <span class="portfolio-tag">Lighting</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Showcase -->
+    <section class="project-showcase">
+      <div class="container">
+        <div class="showcase-container">
+          <div class="showcase-content">
+            <h2>Office Complex Renovation</h2>
+            <p>
+              A complete transformation of a commercial office space, including
+              electrical rewiring, plumbing upgrades, and modern interior
+              design.
+            </p>
+
+            <div class="showcase-features">
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-bolt"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Electrical Upgrade</h4>
+                  <p>Complete rewiring with energy-efficient solutions</p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-faucet"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Plumbing System</h4>
+                  <p>Modern plumbing installation with water-saving fixtures</p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-paint-roller"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Wall Finishing</h4>
+                  <p>Professional skimming and painting for perfect walls</p>
+                </div>
+              </div>
+            </div>
+
+            <a href="#" class="btn">View Case Study</a>
+          </div>
+
+          <div class="showcase-image">
+            <img
+              src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Office Renovation"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <h3>250+</h3>
+            <p>Projects Completed</p>
+          </div>
+
+          <div class="stat-item">
+            <h3>98%</h3>
+            <p>Client Satisfaction</p>
+          </div>
+
+          <div class="stat-item">
+            <h3>10+</h3>
+            <p>Years Experience</p>
+          </div>
+
+          <div class="stat-item">
+            <h3>50+</h3>
+            <p>Happy Clients</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to Start Your Project?</h2>
+        <p>
+          Contact us today to discuss your engineering and interior design
+          needs. Let's work together to bring your vision to life.
+        </p>
+        <a href="contact.html" class="btn">Get a Free Quote</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-container">
+        <div class="footer-col">
+          <h3>Kelvin Engineers & Interiors</h3>
+          <p>
+            Providing reliable engineering and interior solutions with
+            professionalism and creativity.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Plumbing</a></li>
+            <li><a href="#">Electrical Installations</a></li>
+            <li><a href="#">Skimming</a></li>
+            <li><a href="#">Interior Designing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Business Hours</h3>
+          <p>Monday-Friday: 9am - 6pm</p>
+          <p>Saturday: 10am - 4pm</p>
+          <p>Sunday: Closed</p>
+        </div>
+      </div>
+      <div class="container copyright">
+        <p>&copy; 2025 Kelvin Engineers & Interiors. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/254112752088" class="whatsapp-float" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const nav = document.querySelector("nav");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        mobileMenuBtn.innerHTML = nav.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("active");
+          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Portfolio Filtering
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+          // Add active class to clicked button
+          button.classList.add("active");
+
+          // Get filter value
+          const filterValue = button.getAttribute("data-filter");
+
+          // Filter portfolio items
+          portfolioItems.forEach((item) => {
+            if (
+              filterValue === "all" ||
+              item.getAttribute("data-category") === filterValue
+            ) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
