@@ -245,13 +245,14 @@
 
       .contact-details p,
       .contact-details a {
-        color: var(--medium-grey);
-        text-decoration: none;
+        color: blue;
+        -moz-text-decoration-line: underline;
         transition: color 0.3s;
       }
 
       .contact-details a:hover {
-        color: var(--secondary-blue);
+        color: blue;
+        text-decoration: underline;
       }
 
       .social-links {
@@ -720,7 +721,7 @@
                 </div>
                 <div class="contact-details">
                   <h4>Phone</h4>
-                  <p><a href="tel:+254112752088">+254 112 752088</a></p>
+                  <p><a href="tel:+254112752088">+254112752088</a></p>
                 </div>
               </div>
 
@@ -756,7 +757,12 @@
                 </div>
                 <div class="contact-details">
                   <h4>Location</h4>
-                  <p>ShanBad House (Behind New Naivas), Machakos Town</p>
+                  <a
+                    href="https://www.google.com/maps?q=ShanBad+House+Behind+New+Naivas+Machakos+Town"
+                    target="_blank"
+                  >
+                    ShanBad House (Behind New Naivas), Machakos Town
+                  </a>
                 </div>
               </div>
             </div>
@@ -877,6 +883,7 @@
             professionalism and creativity across Kenya.
           </p>
         </div>
+        
         <div class="footer-col">
           <h3>Services</h3>
           <ul>
@@ -904,9 +911,32 @@
           <p>Sunday: Closed</p>
         </div>
       </div>
-      <div class="container copyright">
-        <p>&copy; 2025 Kelvin Construction & Interiors. All Rights Reserved.</p>
-      </div>
+      <div class="container copyright" 
+     style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 15px 0; border-top: 1px solid #ddd; font-size: 14px;">
+
+ <div class="container copyright" 
+     style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 15px 0; border-top: 1px solid #ddd; font-size: 14px;">
+
+  <!-- Left: Company -->
+  <p style="margin: 0;">
+    &copy; 2025 Kelvin Construction & Interiors. All Rights Reserved.
+  </p>
+
+  <!-- Right: Credit -->
+  <p style="margin: 0; font-size: 13px; color: #777;">
+    Crafted with <span style="color: red;">❤</span> by 
+    <a 
+      href="https://wa.me/254723562484?text=Hello%20there,%20I%20Need%20a%20Website" 
+      target="_blank" 
+      style="color: inherit; text-decoration: none; font-weight: 500;"
+    >
+      @SarahaDevs
+    </a>
+  </p>
+
+</div>
+
+
     </footer>
 
     <!-- WhatsApp Float -->
