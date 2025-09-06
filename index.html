@@ -3,28 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kelvin Engineers & Interiors | Home</title>
+    <title>Kevin Construction and Interior</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+
     <style>
       :root {
-        --primary-blue: blue;
-        --secondary-blue: blue;
-        --light-blue: #e8f1ff;
-        --dark-grey: #333;
-        --medium-grey: #666;
-        --light-grey: #f5f7fa;
-        --white: #ffffff;
-        --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        --civil-blue: #0d2d5e;
-        --steel-grey: #5c7a9d;
-        --gold: #d4af37;
+        --red: #ff4d4d;
+        --gold: #ffb347;
+        --blue: #4facfe;
+        --green: #43e97b;
+        --dark: #111;
+        --light: #f1f1f1;
       }
 
       * {
@@ -32,351 +24,292 @@
         padding: 0;
         box-sizing: border-box;
       }
-
       body {
-        font-family: "Open Sans", sans-serif;
-        color: var(--dark-grey);
+        font-family: "Poppins", sans-serif;
+        background: var(--dark);
+        color: var(--light);
         line-height: 1.6;
-        background-color: var(--white);
-        overflow-x: hidden;
       }
 
-      h1,
-      h2,
-      h3,
-      h4 {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: var(--primary-blue);
-      }
-
-      .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 15px;
-      }
-
-      /* Header & Navigation */
+      /* ================= NAV ================= */
       header {
-        background-color: var(--white);
-        box-shadow: var(--shadow);
         position: fixed;
-        width: 100%;
+        background-color: rgba(17, 17, 17, 0.95);
         top: 0;
+        left: 0;
+        width: 100%;
         z-index: 1000;
-        animation: slideDown 0.7s ease-out;
+        padding: 15px 5%;
+        backdrop-filter: blur(6px);
       }
 
       .header-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 0;
       }
 
       .logo {
-        display: flex;
-        align-items: center;
-      }
-
-      .logo h1 {
-        font-size: 1.8rem;
-        margin: 0;
-        color: gold;
-      }
-
-      .logo span {
-        color: blue;
+        font-weight: bold;
+        font-size: 1.6rem;
+        font-style: italic;
+        color: goldenrod;
       }
 
       nav ul {
         display: flex;
         list-style: none;
-      }
-
-      nav ul li {
-        margin-left: 1.5rem;
+        gap: 25px;
       }
 
       nav ul li a {
+        color: white;
         text-decoration: none;
-        color: var(--dark-grey);
-        font-weight: 600;
-        font-size: 1rem;
-        transition: color 0.3s;
-        position: relative;
-      }
-
-      nav ul li a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 3px;
-        background-color: var(--secondary-blue);
-        transition: width 0.3s ease;
+        font-weight: 500;
+        transition: 0.3s;
       }
 
       nav ul li a:hover {
-        color: var(--secondary-blue);
-      }
-
-      nav ul li a:hover::after {
-        width: 100%;
+        color: blue;
       }
 
       .mobile-menu-btn {
         display: none;
         background: none;
         border: none;
-        font-size: 1.5rem;
+        color: rgb(250, 180, 3);
+        font-size: 1.8rem;
         cursor: pointer;
-        color: var(--primary-blue);
       }
 
-      /* Hero Section */
+      @media (max-width: 768px) {
+        .mobile-menu-btn {
+          display: block;
+        }
+        nav {
+          position: fixed;
+          top: 90px;
+          left: -100%;
+          width: 40%;
+          height: 50vh;
+          background: rgba(0, 0, 0, 0.9);
+          transition: 0.3s;
+          padding-top: 40px;
+        }
+        nav.active {
+          left: 0;
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+          gap: 30px;
+        }
+      }
+
+      /* ================= HERO ================= */
       .hero {
-        background: linear-gradient(
-            rgba(13, 45, 94, 0.548),
-            rgba(13, 45, 94, 0.74)
-          ),
-          url("https://media.istockphoto.com/id/981339754/photo/silhouette-of-engineer-and-construction-team-working-at-site-over-blurred-background-sunset.webp?a=1&b=1&s=612x612&w=0&k=20&c=ftbsxL76vkKvsB8WUO-FMrCHyjrRJKzLpZ_evRWJR4E=")
-            no-repeat center center/cover;
-        min-height: 100vh;
+        position: relative;
+        height: 100vh;
         display: flex;
+        justify-content: center;
         align-items: center;
         text-align: center;
-        color: var(--white);
-        position: relative;
+        color: white;
         overflow: hidden;
+        background: #111;
       }
 
       .hero::before {
         content: "";
         position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 20px;
-        background: linear-gradient(
-          135deg,
-          transparent 0%,
-          transparent 50%,
-          var(--white) 50%,
-          var(--white) 100%
-        );
-        background-size: 20px 20px;
+        inset: 0;
+        background: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80")
+          no-repeat center center/cover;
+        clip-path: inset(100% 0 0 0);
+        animation: revealImage 2.5s ease forwards;
+        z-index: 0;
       }
 
-      .hero-content {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 2rem;
-        position: relative;
+      @keyframes revealImage {
+        to {
+          clip-path: inset(0 0 0 0);
+        }
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
         z-index: 1;
       }
 
-      .hero h2 {
-        font-size: 3.8rem;
-        margin-bottom: 1.5rem;
-        color: var(--white);
-        animation: fadeInDown 3s ease-out;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 0 20px;
+        animation: fadeInUp 2s ease;
+      }
+
+      .paint-logo {
+        font-size: 2.2rem;
+        font-style: oblique;
+        font-weight: 700;
+        margin-bottom: 25px;
+        display: inline-block;
+        position: relative;
+        animation: drip 2s ease forwards;
+        color: #fff;
+      }
+
+      .paint-logo::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        width: 12px;
+        height: 20px;
+        background: var(--red);
+        border-radius: 50%;
+        transform: translateX(-50%) scaleY(0);
+        animation: drop 1.8s ease 1s forwards;
+      }
+
+      .hero h1 {
+        font-size: 3.2rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        background: linear-gradient(
+          90deg,
+          var(--red),
+          var(--gold),
+          var(--blue),
+          var(--green)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: colorShift 8s linear infinite;
+        background-size: 200% 200%;
+      }
+
+      @keyframes colorShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 200% 50%;
+        }
       }
 
       .hero p {
-        font-size: 1.4rem;
-        margin-bottom: 2.5rem;
-        animation: fadeInUp 1s ease-out 0.3s both;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        color: #f1f1f1;
       }
 
       .hero-buttons {
         display: flex;
         justify-content: center;
-        gap: 1.5rem;
-        animation: fadeIn 1s ease-out 0.6s both;
+        gap: 20px;
+        flex-wrap: wrap;
       }
 
       .btn {
-        display: inline-block;
-        background: linear-gradient(
-          to right,
-          var(--primary-blue),
-          var(--secondary-blue)
-        );
-        color: var(--white);
-        padding: 1rem 2.2rem;
-        border-radius: 50px;
-        text-decoration: none;
+        padding: 12px 25px;
+        border-radius: 30px;
         font-weight: 600;
-        transition: all 0.4s;
-        border: none;
-        cursor: pointer;
-        box-shadow: 0 4px 15px rgba(45, 110, 196, 0.3);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .btn::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, purple, transparent);
-        transition: 0.5s;
+        background: rgb(250, 0, 96);
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
       }
 
       .btn:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(45, 110, 196, 0.5);
-      }
-
-      .btn:hover::before {
-        left: 100%;
+        background: rgb(133, 95, 1);
+        transform: translateY(-3px);
       }
 
       .btn-outline {
         background: transparent;
-        border: 2px solid var(--white);
-        color: var(--white);
-        box-shadow: none;
+        border: 2px solid white;
+        color: white;
       }
 
       .btn-outline:hover {
-        background: var(--white);
-        color: var(--primary-blue);
+        background: white;
+        color: #333;
       }
 
-      /* Floating Elements */
-      .floating-elements {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        overflow: hidden;
-        z-index: 0;
+      @keyframes drip {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
-      .floating-element {
-        position: absolute;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        animation: float 15s infinite ease-in-out;
+      @keyframes drop {
+        to {
+          transform: translateX(-50%) scaleY(1);
+        }
       }
 
-      .floating-element:nth-child(1) {
-        width: 80px;
-        height: 80px;
-        top: 15%;
-        left: 10%;
-        animation-delay: 0s;
-        background: rgba(255, 255, 255, 0.15);
-        border-radius: 20px;
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
-      .floating-element:nth-child(2) {
-        width: 50px;
-        height: 50px;
-        top: 65%;
-        left: 80%;
-        animation-delay: 2s;
-        animation-duration: 18s;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-      }
-
-      .floating-element:nth-child(3) {
-        width: 70px;
-        height: 70px;
-        top: 30%;
-        left: 75%;
-        animation-delay: 4s;
-        animation-duration: 20s;
-        background: rgba(255, 255, 255, 0.12);
-        border-radius: 15px;
-      }
-
-      .floating-element:nth-child(4) {
-        width: 60px;
-        height: 60px;
-        top: 70%;
-        left: 15%;
-        animation-delay: 1s;
-        animation-duration: 17s;
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 50%;
-      }
-
-      .floating-element:nth-child(5) {
-        width: 90px;
-        height: 90px;
-        top: 50%;
-        left: 5%;
-        animation-delay: 3s;
-        animation-duration: 22s;
-        background: rgba(255, 255, 255, 0.18);
-        border-radius: 25px;
-      }
-
-      /* Scroll Indicator */
-      .scroll-indicator {
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: var(--white);
-        font-size: 1.2rem;
-        animation: bounce 2s infinite;
-      }
-
-      /* Footer */
+      /* ================= FOOTER ================= */
       footer {
-        background-color: var(--dark-grey);
-        color: var(--white);
-        padding: 4rem 0 1.5rem;
+        background: #000;
+        color: #ccc;
+        padding: 60px 5% 30px;
+        margin-top: 50px;
       }
 
       .footer-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2.5rem;
+        gap: 40px;
+        margin-bottom: 30px;
       }
 
-      .footer-col h3 {
-        color: var(--white);
-        margin-bottom: 1.5rem;
-        font-size: 1.3rem;
+      .footer-container h3 {
+        color: white;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
       }
 
-      .footer-col p {
-        margin-bottom: 1rem;
-      }
-
-      .footer-col ul {
-        list-style: none;
-      }
-
-      .footer-col ul li {
-        margin-bottom: 0.8rem;
-      }
-
-      .footer-col ul li a {
-        color: #ccc;
+      .footer-container p,
+      .footer-container a {
+        color: #aaa;
+        font-size: 0.95rem;
         text-decoration: none;
-        transition: color 0.3s;
+        display: block;
+        margin-bottom: 8px;
+        transition: 0.3s;
       }
 
-      .footer-col ul li a:hover {
-        color: var(--white);
+      .footer-container a:hover {
+        color: var(--red);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        border-top: 1px solid #333;
+        padding-top: 15px;
+        font-size: 0.9rem;
+        color: #888;
       }
 
       .social-links {
@@ -391,7 +324,7 @@
         align-items: center;
         width: 40px;
         height: 40px;
-        background-color: var(--secondary-blue);
+        background-color: blue;
         color: var(--white);
         border-radius: 50%;
         text-decoration: none;
@@ -399,17 +332,9 @@
       }
 
       .social-links a:hover {
-        background-color: var(--white);
+        background-color: rgba(0, 0, 255, 0.247);
         color: var(--primary-blue);
         transform: translateY(-3px);
-      }
-
-      .copyright {
-        text-align: center;
-        margin-top: 4rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid #555;
-        color: #ccc;
       }
 
       /* WhatsApp Float */
@@ -437,180 +362,30 @@
         background-color: green;
         transform: scale(1.1);
       }
-
-      /* Animations */
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
+      .span {
+        color: #fa9405;
+        font-style: oblique;
       }
 
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes fadeInDown {
-        from {
-          opacity: 0;
-          transform: translateY(-30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes slideDown {
-        from {
-          transform: translateY(-100%);
-        }
-        to {
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes float {
-        0% {
-          transform: translateY(0) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-20px) rotate(5deg);
-        }
-        100% {
-          transform: translateY(0) rotate(0deg);
-        }
-      }
-
-      @keyframes bounce {
-        0%,
-        20%,
-        50%,
-        80%,
-        100% {
-          transform: translateX(-50%) translateY(0);
-        }
-        40% {
-          transform: translateX(-50%) translateY(-10px);
-        }
-        60% {
-          transform: translateX(-50%) translateY(-5px);
-        }
-      }
-
-      @keyframes pulse {
-        0% {
-          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-        }
-        70% {
-          box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-        }
-        100% {
-          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-        }
-      }
-
-      /* Responsive Styles */
-      @media (max-width: 992px) {
-        .hero h2 {
-          font-size: 3.2rem;
-        }
-
-        .hero p {
-          font-size: 1.2rem;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .mobile-menu-btn {
-          display: block;
-        }
-
-        nav {
-          position: fixed;
-          top: 70px;
-          left: -100%;
-          width: 80%;
-          height: calc(100vh - 70px);
-          background-color: var(--white);
-          box-shadow: var(--shadow);
-          transition: all 0.3s;
-          z-index: 999;
-        }
-
-        nav.active {
-          left: 0;
-        }
-
-        nav ul {
-          flex-direction: column;
-          padding: 2rem;
-        }
-
-        nav ul li {
-          margin: 1rem 0;
-        }
-
-        .hero h2 {
-          font-size: 2.8rem;
-        }
-
-        .hero p {
-          font-size: 1.1rem;
-        }
-
-        .hero-buttons {
-          flex-direction: column;
-          gap: 1rem;
-        }
-
-        .btn {
-          width: 100%;
-          max-width: 300px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .logo h1 {
-          font-size: 1.5rem;
-        }
-
-        .hero h2 {
-          font-size: 2.3rem;
-        }
-
-        .hero p {
-          font-size: 1rem;
-        }
-
-        .floating-element {
-          display: none;
-        }
+      .span2 {
+        color: white;
+        font-style: oblique;
       }
     </style>
   </head>
   <body>
-    <!-- Header & Navigation -->
+    <!-- Header/Nav -->
     <header>
-      <div class="container header-container">
+      <div class="header-container">
         <div class="logo">
-          <h1>Kelvin <span>Construction & Interiors</span></h1>
+          Kelvin <span class="span2">Construction & Interiors</span>
         </div>
-        <button class="mobile-menu-btn">
+        <button class="mobile-menu-btn" id="menu-btn">
           <i class="fas fa-bars"></i>
         </button>
-        <nav>
+        <nav id="nav">
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
@@ -620,131 +395,116 @@
       </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
-      <div class="floating-elements">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-      </div>
-
-      <div class="container hero-content">
-        <h2>Reliable Construction & Interior Solutions</h2>
+      <div class="hero-content">
+        <div class="paint-logo">
+          Build With <span class="span">Kelvin</span>
+        </div>
+        <h1>Building Excellence, Designing Elegance</h1>
         <p>
-          Transforming spaces with precision engineering and creative interior
-          design. Professional services for residential and commercial
-          properties across Kenya.
+          Trusted construction and interior solutions that transform spaces with
+          precision and style.
         </p>
-
         <div class="hero-buttons">
           <a href="services.html" class="btn">Our Services</a>
           <a href="contact.html" class="btn btn-outline">Request a Quote</a>
         </div>
       </div>
-
-      <div class="scroll-indicator">
-        <i class="fas fa-chevron-down"></i>
-      </div>
     </section>
 
     <!-- Footer -->
     <footer>
-      <div class="container footer-container">
-        <div class="footer-col">
-          <h3>Kelvin Construction & Interiors</h3>
+      <div class="footer-container">
+        <div>
+          <h3>About Us</h3>
           <p>
-            Providing reliable engineering and interior solutions with
-            professionalism and creativity across Kenya.
+            Kevin Construction and Interiors is a trusted name in building,
+            plumbing, and interior design. We deliver projects on time with
+            unmatched quality.
+          </p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div>
+          <h3>Contacts</h3>
+          <p>
+            <i class="fas fa-phone"></i
+            ><a href="tel:+254112752088">+254 112 752 088</a>
+          </p>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:kelvinmusyoka928@gmail.com"
+              >info@kevinconstruction.co.ke</a
+            >
+          </p>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            <a
+              href="https://www.google.com/maps?q=ShanBad+House+Behind+New+Naivas+Machakos+Town"
+              target="_blank"
+            >
+              ShanBad House (Behind New Naivas), Machakos Town
+            </a>
           </p>
           <div class="social-links">
             <a href="https://www.facebook.com/kelvin.musyoka.1023"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a href="https://www.tiktok.com/@eng.kelvoointerior"
-                ><i class="fa-brands fa-tiktok"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/kemusyoka?igsh=bHhsc25nMjA5eTQ0"
-                ><i class="fab fa-instagram"></i
-              ></a>
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://www.tiktok.com/@eng.kelvoointerior"
+              ><i class="fa-brands fa-tiktok"></i
+            ></a>
+            <a href="https://www.instagram.com/kemusyoka?igsh=bHhsc25nMjA5eTQ0"
+              ><i class="fab fa-instagram"></i
+            ></a>
             <!--<a href="#"><i class="fab fa-linkedin-in"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>-->
           </div>
         </div>
-        <div class="footer-col">
-          <h3>Services</h3>
-          <ul>
-            <li><a href="services.html">Plumbing</a></li>
-            <li><a href="services.html">Electrical Installations</a></li>
-            <li><a href="services.html">Skimming</a></li>
-            <li><a href="services.html">Interior Designing</a></li>
-            <li><a href="services.html">Civil Engineering</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h3>Business Hours</h3>
-          <p>Monday-Friday: 9am - 6pm</p>
-          <p>Saturday: 9am - 4pm</p>
-          <p>Sunday: Closed</p>
-        </div>
       </div>
-       <!-- Left: Company -->
-  <p style="margin: 0;">
-    &copy; 2025 Kelvin Construction & Interiors. All Rights Reserved.
-  </p>
-
-  <!-- Right: Credit -->
-  <p style="margin: 0; font-size: 13px; color: #777;">
-    Crafted with <span style="color: red;">❤</span> by 
-    <a 
-      href="https://wa.me/254723562484?text=Hello%20there,%20I%20Need%20a%20Website" 
-      target="_blank" 
-      style="color: inherit; text-decoration: none; font-weight: 500;"
-    >
-      @SarahaDevs
-    </a>
-  </p>
-
-</div>
+      <div class="footer-bottom">
+        &copy; 2025 Kelvin Construction and Interiors. All rights reserved.
+        <!-- Right: Credit -->
+        <p style="margin: 0; font-size: 13px; color: #777">
+          Crafted with <span style="color: red">❤</span> by
+          <a
+            href="https://wa.me/254723562484?text=Hello%20there,%20I%20Need%20a%20Website"
+            target="_blank"
+            style="
+              color: rgba(0, 0, 255, 0.822);
+              text-decoration: none;
+              font-weight: 500;
+            "
+          >
+            @Saraha_Devs
+          </a>
+        </p>
+      </div>
     </footer>
-
     <!-- WhatsApp Float -->
     <a href="https://wa.me/254112752088" class="whatsapp-float" target="_blank">
       <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-      // Mobile Menu Toggle
-      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-      const nav = document.querySelector("nav");
-
-      mobileMenuBtn.addEventListener("click", () => {
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const nav = document.getElementById("nav");
+      menuBtn.addEventListener("click", () => {
         nav.classList.toggle("active");
-        mobileMenuBtn.innerHTML = nav.classList.contains("active")
-          ? '<i class="fas fa-times"></i>'
-          : '<i class="fas fa-bars"></i>';
       });
-
       // Close mobile menu when clicking on a link
-      document.querySelectorAll("nav a").forEach((link) => {
+      document.querySelectorAll("nav").forEach((link) => {
         link.addEventListener("click", () => {
           nav.classList.remove("active");
           mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
         });
       });
-
       // Smooth scrolling for navigation links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
